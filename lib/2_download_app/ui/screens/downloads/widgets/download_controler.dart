@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class Ressource {
+class Resource {
   final String name;
   final int size;   // in MB
 
-  Ressource({required this.name, required this.size}); 
+  Resource({required this.name, required this.size}); 
 }
 
-enum DownloadStatus { notDownloaded, downloading, downloaded }
+enum  DownloadStatus { notDownloaded, downloading, downloaded }
 
 class DownloadController extends ChangeNotifier {
   
-  DownloadController(this.ressource);
+  DownloadController(this.resource);
 
   // DATA
-  Ressource ressource;
+  Resource resource;
   DownloadStatus _status = DownloadStatus.notDownloaded;
   double _progress = 0.0;         // 0.0 → 1.0
 
