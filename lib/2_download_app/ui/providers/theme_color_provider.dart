@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:someth_w4_pratice/2_download_app/ui/screens/settings/settings_screen.dart';
 
 enum ThemeColor {
   blue(color: Color.fromARGB(255, 34, 118, 229)),
@@ -11,4 +12,15 @@ enum ThemeColor {
   Color get backgroundColor => color.withAlpha(100);
 }
 
-ThemeColor currentThemeColor = ThemeColor.blue;
+class ThemeColorProvider extends ChangeNotifier {
+  ThemeColor _currentThemeColor = ThemeColor.blue;
+
+  ThemeColor get currentThemeColor => _currentThemeColor;
+
+  void onThemeButtonTap(ThemeColor theme) {
+    _currentThemeColor = theme;
+    notifyListeners();
+  }
+}
+
+final themeColorProvider = ThemeColorProvider();
